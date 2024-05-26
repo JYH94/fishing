@@ -1,0 +1,11 @@
+.side_aboutme {
+    border: 1px solid rgba(128, 128, 128, 0.5);
+        border-radius: 30px;
+        width: 25%;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        word-break: keep-all;
+        overflow-y: auto;
+}
