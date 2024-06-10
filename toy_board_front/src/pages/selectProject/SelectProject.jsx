@@ -9,7 +9,7 @@ const SelectProject = () => {
             <ul id='projectBox'>
                 <Link to='/aboutme'></Link>
                 <Link to='/fishing'>
-                    <h3><span className="forHelp_span">*</span>낚시인 커뮤니티</h3>
+                    <h3><span className="forHelp_span">*</span>낚시 포인트</h3>
                     <img id='mapImg' src='../../../map.png' alt="" />
 
                     <div className='manual'>

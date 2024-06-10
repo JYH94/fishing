@@ -28,32 +28,14 @@ import lombok.Setter;
 @Data
 public class FishingBoard {
 
-    
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long seq;
-    
-    @Column(name = "writer")
-    private String writer;
-    
-    @Column(name = "title", nullable = false)
+    private Integer seq;
+
     private String title;
-    
-    @Column(name = "content", nullable = false)
-    private String content;
-    
-    @Column(name = "root", nullable = false)
-    private Integer root;
-    
-    @Column(name = "depth", nullable = false)
-    private Integer depth;
-    
-    @Column(name = "image_path")
-    private String imagePath;
-    
-    @Column(name = "reg_date")
-    private LocalDateTime regDate;
-    
-    @Column(name = "classification")
-    private String classification;
+    private String contents;
+    private String writer;
+    private LocalDateTime regdate;
+    private String imagePath; // 이미지 경로 필드 추가
+    private Integer views;
 }

@@ -1,4 +1,36 @@
-#board_insertBox {
+/* #board_insertBox {
     display: flex;
-    background-color: aqua;
+} */
+
+.insert_AddrBox {
+    height: 100%;
+}
+
+#board_insertBox {
+    height: 100%;
+}
+
+#board_insertBox>label>p {
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+#board_insertBox input {
+    text-indent: 6px;
+}
+
+#board_insertBox button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    margin-top: 10px;
+    float: right;
+}
+
+#board_insertBox textarea {
+    resize: none;
+    width: 100%;
+    height: 50%;
+    padding: 10px;
 }

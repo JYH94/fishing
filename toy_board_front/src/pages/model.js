@@ -1,6 +1,6 @@
 import axios from 'axios';
-export const BASE_URL = 'http://3.39.213.63:8080';
-// export const BASE_URL = 'http://localhost:8080';
+// export const BASE_URL = 'http://3.39.213.63:8080';
+export const BASE_URL = 'http://localhost:8080';
 
 
 export async function api(url, method, requestData) {

@@ -7,22 +7,47 @@
 }
 
 #total_info>div {
-    padding: 40px;
+    padding: 25px;
     border: 1px solid rgba(128, 128, 128, 0.5);
     border-radius: 20px;
     overflow: hidden;
 }
 
 #privacy {
-    height: 30%;
+    height: 50%;
 }
 
-#privacy>p {
+#privacy #buttonBox {
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#privacy #buttonBox button {
+    width: 49%;
+    margin-right: 2%;
+    background-color: black;
+    color: white;
+    height: 10%;
+}
+
+#privacy>div {
+    width: 100%;
+    display: flex;
     margin-bottom: 10px;
 }
 
+#privacy>div>div {
+    font-weight: bold;
+    width: 30%;
+}
+
+#privacy input {
+    width: 70%;
+}
+
 #menu_bar {
-    height: 70%;
+    height: 50%;
     white-space: nowrap;
 }
 
@@ -34,7 +59,80 @@
     margin-left: 20px;
 }
 
-.info_title {
+
+#total_info .modal_Fishing {
+    height: 45%;
+    width: 25%;
+    left: calc(75% / 2);
+    top: calc(50% / 2);
+}
+
+#total_info .modal_Fishing input {
+    width: 100%;
+}
+
+#total_info .loginModal {
+    height: 30%;
+    width: 15%;
+    left: 45%;
+    top: 30%;
+}
+
+.loginModal button {
+    background-color: black;
+    color: white;
     font-weight: bold;
-    font-size: 20px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+}
+
+.subject {
+    color: grey;
+    display: block;
+    margin-top: 15px;
+}
+
+#emailBox {
+    width: 100%;
+}
+
+#emailBox>div {
+    display: flex;
+}
+
+#emailBox>div>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
+
+#emailBox input {
+    width: 45% !important;
+    text-indent: 6px;
+}
+
+#emailBox select {
+    width: 45%;
+    text-indent: 6px;
+}
+
+#total_info .signModal {
+    overflow-y: auto;
+}
+#total_info .loginModal {
+    overflow-y: auto;
+}
+
+
+.signModal button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 30px;
+    display: block;
+    width: 100%;
 }

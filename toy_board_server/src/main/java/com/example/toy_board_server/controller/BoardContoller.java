@@ -45,4 +45,10 @@ public class BoardContoller {
 		result = ResponseEntity.status(HttpStatus.OK).body(list);
 		return result;
 	}
+	
+	public ResponseEntity<?> insert(FishingBoard entity){
+		
+		System.out.println(entity);
+		return null;
+	}
 }

@@ -74,14 +74,14 @@ const Fishing_insert = ({ setSelectOrInsert }) => {
                 <button onClick={getSearch}>검색</button>
             </div>
             <p className='forHelp'><span className='forHelp_span'>*</span>카카오맵 기준으로 검색됩니다.상세 주소를 입력 후 원하는 위치를 클릭하여 포인트를 등록해주세요.</p>
-            <label htmlFor="" className="input_for_insert"><p>포인트 이름</p>
-                <input type="text" name="pointName" placeholder="모두가 알 수 있도록 지어주세요. ex) '금사지 상류'" value={point.pointName} onChange={changePoint} />
+            <label htmlFor="pointName" className="input_for_insert"><p>포인트 이름</p>
+                <input type="text" name="pointName" id='pointName' placeholder="모두가 알 수 있도록 지어주세요. ex) '금사지 상류'" value={point.pointName} onChange={changePoint} />
             </label>
-            <label htmlFor="" className="input_for_insert"><p>포인트 부가설명</p>
-                <input type="text" name="pointDesc" placeholder="간단한 설명을 적어주세요 ex) '다리 밑'" value={point.pointDesc} onChange={changePoint} />
+            <label htmlFor="pointDesc" className="input_for_insert"><p>포인트 부가설명</p>
+                <input type="text" name="pointDesc" id='pointDesc' placeholder="간단한 설명을 적어주세요 ex) '다리 밑'" value={point.pointDesc} onChange={changePoint} />
             </label>
-            <label htmlFor="" className="input_for_insert"><p>포인트 입력자</p>
-                <input type="text" name="pointRegister" placeholder="이름 or 별명 ex) '런커'" value={point.pointRegister} onChange={changePoint} />
+            <label htmlFor="pointRegister" className="input_for_insert"><p>포인트 입력자</p>
+                <input type="text" name="pointRegister" id='pointRegister' placeholder="이름 or 별명 ex) '런커'" value={point.pointRegister} onChange={changePoint} />
             </label>
             <label htmlFor="" className="input_for_insert latlng"><p>좌표</p>
                 <input type="text" placeholder="경도" value={point.pointLat} required />

@@ -14,7 +14,6 @@ const Fishing_sideMenu = ({ setSelectOrInsert }) => {
     });
     const [modal, setModal] = useState(false);
 
-
     useEffect(() => {
         api("/fishing/selectall", 'get')
             .then(res => {
@@ -24,17 +23,12 @@ const Fishing_sideMenu = ({ setSelectOrInsert }) => {
             .catch(err => console.log(err.message));
     }, []);
 
-    console.log('========================')
-    console.log(whichPoint)
-    console.log('========================')
-
-
     const searchPoint = async () => {
         api(`/fishing/selectwhere?column=${searchForm.column}&keyword=${searchForm.keyword}`, 'get')
             .then(res => {
                 if (res.data.length > 0) {
                     setPointList(res.data);
-                    makeMarker(res.data, null, setModal);
+                    makeMarker(res.data, null, setModal, setWhichPoint);
                 } else {
                     if (window.confirm('등록된 포인트가 없습니다. 직접 포인트를 등록하시겠습니까?')) {
                         setSelectOrInsert(false);
@@ -54,16 +48,17 @@ const Fishing_sideMenu = ({ setSelectOrInsert }) => {
 
     };
 
-    const checkEnter = (e) => {
-        if (e.key == 'Enter') searchPoint();
-    }
-
     const changeSearchOption = (e) => {
         setSearchForm(pre => ({
             ...pre,
             column: e.target.value
         }));
     };
+
+    const checkEnter = (e) => {
+        if (e.key == 'Enter') searchPoint();
+    }
+
 
     return (
         <>

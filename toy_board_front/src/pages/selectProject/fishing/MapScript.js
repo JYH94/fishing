@@ -169,6 +169,12 @@ export function whichPoint(point) {
     infowindow.setContent(content);
     infowindow.open(map, marker);
 
+    // =============================================================================================================
+
+    
+    // =============================================================================================================
+    
+
     kakao.maps.event.addListener(marker, 'click', function () {
         infowindow.setContent(content);
         infowindow.open(map, marker);
