@@ -29,26 +29,17 @@ public class BoardContoller {
 	
 	private BoardService boardService;
 
-	@PostMapping(value="/check")
-	public void test(FishingBoard entity) throws IOException {
-		System.out.println(entity);
-	}
-	
 	@GetMapping("/selectall")
 	public ResponseEntity<?> selectall() {
 		ResponseEntity<?> result = null;
 		List<FishingBoard> list = boardService.selectAll();
 		
-		for (FishingBoard fishingBoard : list) {
-			System.out.println(fishingBoard);
-		}
 		result = ResponseEntity.status(HttpStatus.OK).body(list);
 		return result;
 	}
 	
 	public ResponseEntity<?> insert(FishingBoard entity){
 		
-		System.out.println(entity);
 		return null;
 	}
 }

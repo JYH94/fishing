@@ -69,7 +69,6 @@ const Board = () => {
         
     }
 
-    console.log(articleList[0]);
 
 
 

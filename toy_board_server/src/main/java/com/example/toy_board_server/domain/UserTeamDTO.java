@@ -1,31 +1,25 @@
-package com.example.toy_board_server.entity;
+package com.example.toy_board_server.domain;
 
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+
+import com.example.toy_board_server.entity.Team;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "user")
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class User {
-    
-    @Id
+public class UserTeamDTO {
+
     private String id;
     private String password;
     private String nickname;
     private String email;
+    List<Team> teamList;
     
 }

@@ -29,8 +29,6 @@ const Board_side = () => {
         }
     }
 
-    console.log(articleForm);
-
     const insertArticle = () => {
         const formData = new FormData();
         formData.append('title', articleForm.title);

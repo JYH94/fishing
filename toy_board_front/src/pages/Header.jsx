@@ -1,20 +1,18 @@
 import './Header.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
 import { api } from './model';
 
 
 const Header = () => {
+    const [userInfo, setUserInfo] = useState(JSON.parse(sessionStorage.getItem('user')));
     const [openStatus, SetOpenStatus] = useState({
-        point: false,
-        board: false,
         aboutMe: false
     });
     const [modal, setModal] = useState({
         sign: false,
         login: false
     });
-
     const [signForm, setSignForm] = useState(null);
     const [loginForm, setLoginForm] = useState(null);
 
@@ -34,20 +32,51 @@ const Header = () => {
         }));
     }
 
-    const getLogin = () => {
+    const requestLogin = () => {
         api('/user/login', 'post', loginForm)
-            .then(res => console.log(res.data))
+            .then(res => {
+                if (res.data.id == undefined) {
+                    alert(res.data);
+                } else {
+                    setUserInfo({
+                        id: res.data.id,
+                        nickname: res.data.nickname,
+                        login: true
+                    })
+                    sessionStorage.setItem('user', JSON.stringify({
+                        id: res.data.id,
+                        nickname: res.data.nickname,
+                        login: true
+                    }))
+                    console.log(res.data);
+                    setModal(!modal);
+                    alert('로그인 성공!')
+                }
+            })
             .catch(err => console.log(err.message))
     }
 
-    const getSign = () => {
+    const requestSign = () => {
         api('/user/sign', 'post', signForm)
-            .then(res => console.log(res.data))
+            .then(res => {
+                alert(res.data);
+                setModal(!modal);
+            })
             .catch(err => console.log(err.message))
     }
 
+    const logout = () => {
+        setUserInfo(null);
+        sessionStorage.removeItem('user')
+        alert('로그아웃 성공');
+    }
 
-    console.log(signForm);
+    const duplicate = () => {
+        api(`/user/duplicate?id=${signForm.id}`, 'get')
+            .then(res => alert(res.data))
+            .catch(err => console.log(err.message))
+    }
+
 
     return (
         <div id='total_info'>
@@ -58,19 +87,19 @@ const Header = () => {
                     <div className='modal_Fishing signModal'>
                         <div className='xBtn' onClick={() => setModal(false)}>X</div>
                         <h2>회원가입</h2>
-                        <label>
-                            <span className='subject'>*아이디</span>
+                        <label htmlFor='id'>
+                            <span className='subject'>*아이디<button onClick={duplicate}>중복확인</button></span>
                             <input type="text" name="id" id="id" onChange={changeSignForm} />
                         </label>
-                        <label>
+                        <label htmlFor='password'>
                             <span className='subject'>*비밀번호</span>
                             <input type="password" name="password" id="password" onChange={changeSignForm} />
                         </label>
-                        <label>
+                        <label htmlFor='nickname'>
                             <span className='subject'>*별명</span>
                             <input type="text" name="nickname" id="nickname" onChange={changeSignForm} />
                         </label>
-                        <label id='emailBox'>
+                        <label htmlFor='emailFront' id='emailBox'>
                             <span className='subject'>*이메일</span>
                             <div>
                                 <input type="text" name="emailFront" id="emailFront" onChange={changeSignForm} />
@@ -82,7 +111,7 @@ const Header = () => {
                                 </select>
                             </div>
                         </label>
-                        <button onClick={getSign}>회원가입</button>
+                        <button onClick={requestSign}>회원가입</button>
                     </div>
                 </>
             }
@@ -99,17 +128,22 @@ const Header = () => {
                         </label>
                         <label>
                             <span className='subject'>*비밀번호</span>
-                        <input type="password" name="password" id="password" onChange={changeLoginForm} />
+                            <input type="password" name="password" id="password" onChange={changeLoginForm} />
                         </label>
-                        <button onClick={getLogin}>로그인</button>
+                        <button onClick={requestLogin}>로그인</button>
                     </div>
                 </>
             }
             <div id='privacy'>
-                <div id='buttonBox'>
-                    <button onClick={() => setModal(pre => ({ ...pre, login: true }))}>로그인</button>
-                    <button onClick={() => setModal(pre => ({ ...pre, sign: true }))}>회원가입</button>
-                </div>
+                {!userInfo ?
+                    <div id='buttonBox'>
+                        <button onClick={() => setModal(pre => ({ ...pre, login: true }))}>로그인</button>
+                        <button onClick={() => setModal(pre => ({ ...pre, sign: true }))}>회원가입</button>
+                    </div>
+                    : <div id='greeting'>
+                        {userInfo && userInfo.nickname}님 환영합니다! <button onClick={logout}>로그아웃</button>
+                    </div>
+                }
             </div>
             <div id='menu_bar'>
                 <div>

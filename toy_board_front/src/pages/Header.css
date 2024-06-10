@@ -94,6 +94,11 @@
     margin-top: 15px;
 }
 
+.subject>button {
+    margin-left: 10px !important;
+    font-weight: initial !important;
+}
+
 #emailBox {
     width: 100%;
 }
@@ -127,6 +132,7 @@
 }
 
 
+
 .signModal button {
     background-color: black;
     color: white;
@@ -136,3 +142,26 @@
     display: block;
     width: 100%;
 }
+
+
+.signModal label button {
+    width: initial;
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+#greeting {
+    font-size: 14px;
+    color: grey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ #greeting>button {
+    background-color: black;
+    color: white;
+    margin-left: 7px;
+    padding: 0px 5px;
+ }

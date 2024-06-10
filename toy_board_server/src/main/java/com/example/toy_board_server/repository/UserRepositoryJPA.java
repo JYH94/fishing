@@ -7,7 +7,6 @@ import com.example.toy_board_server.entity.User;
 
 @Repository
 public interface UserRepositoryJPA extends JpaRepository<User, String>{
-
 	User findByid(String id);
-
+	User findUserWithTeamsById(String userId);
 }
