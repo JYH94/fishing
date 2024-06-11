@@ -61,7 +61,7 @@ const Board_side = () => {
                     <textarea name="contents" id="contents"></textarea>
                 </label>
                 <label htmlFor=""><p>작성자</p>
-                    <input type="text" name="writer" id="writer" onChange={changeBoardForm} value={userInfo.id} readOnly/>
+                    <input type="text" name="writer" id="writer" onChange={changeBoardForm} value={userInfo && userInfo.id} readOnly/>
                 </label>
                 <label htmlFor=""><p>이미지 업로드</p>
                     <input type="file" multiple name="image" id="image" onChange={changeBoardForm} />
