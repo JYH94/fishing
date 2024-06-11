@@ -22,4 +22,6 @@ public class BoardServiceImpl implements BoardService{
 	public List<FishingBoard> selectAll() {
 		return boardRepository.findAll();
 	}
+	
+	
 }

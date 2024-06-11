@@ -36,6 +36,6 @@ public class FishingBoard {
     private String contents;
     private String writer;
     private LocalDateTime regdate;
-    private String imagePath; // 이미지 경로 필드 추가
+    private String[] images; // 이미지 경로 필드 추가
     private Integer views;
 }

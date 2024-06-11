@@ -12,6 +12,9 @@ const Board_side = () => {
         writer: '',
         images: [] // 이미지 파일을 저장할 배열
     });
+    const userInfo = JSON.parse(sessionStorage.getItem('user'))
+
+    console.log(userInfo);
 
     const changeBoardForm = (e) => {
         const { name, value, files } = e.target;
@@ -29,6 +32,8 @@ const Board_side = () => {
         }
     }
 
+    console.log(articleForm);
+
     const insertArticle = () => {
         const formData = new FormData();
         formData.append('title', articleForm.title);
@@ -44,6 +49,7 @@ const Board_side = () => {
             .catch(err => console.log(err.message))
     }
 
+
     return (
         <div className="insert_AddrBox">
             <div id="board_insertBox">
@@ -54,10 +60,10 @@ const Board_side = () => {
                     <textarea name="contents" id="contents"></textarea>
                 </label>
                 <label htmlFor=""><p>작성자</p>
-                    <input type="text" name="writer" id="writer" onChange={changeBoardForm} />
+                    <input type="text" name="writer" id="writer" onChange={changeBoardForm} value={userInfo.id} readOnly/>
                 </label>
                 <label htmlFor=""><p>이미지 업로드</p>
-                    <input type="file" name="image" id="image" onChange={changeBoardForm} />
+                    <input type="file" multiple name="image" id="image" onChange={changeBoardForm} />
                 </label>
                 <button onClick={insertArticle}>등록</button>
             </div>
