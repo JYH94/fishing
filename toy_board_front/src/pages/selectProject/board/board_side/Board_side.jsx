@@ -47,6 +47,7 @@ const Board_side = () => {
         api('/board/insert', 'post', formData)
             .then(res => console.log('Success!'))
             .catch(err => console.log(err.message))
+            
     }
 
 
