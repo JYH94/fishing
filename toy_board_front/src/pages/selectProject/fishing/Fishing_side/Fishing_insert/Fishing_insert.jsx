@@ -48,7 +48,6 @@ const Fishing_insert = ({ setSelectOrInsert }) => {
         api('/fishing/save', 'post', point)
             .then(res => {
                 makeMarker(res.data, setPoint);
-                console.log('Insert OK');
                 setPoint({
                     pointName: '',
                     pointDesc: '',
@@ -63,6 +62,11 @@ const Fishing_insert = ({ setSelectOrInsert }) => {
             });
     }
 
+    const checkEnter = (e) => {
+        if (e.key == 'Enter') getSearch();
+    }
+
+
     return (
         <div className="insert_AddrBox">
             <div id='selectInsertOrSelect'>
@@ -70,7 +74,7 @@ const Fishing_insert = ({ setSelectOrInsert }) => {
                 <div onClick={() => setSelectOrInsert(false)}>포인트입력</div>
             </div>
             <div className="input_for_search">
-                <input type="text" name="" id="" onChange={changeKeyword} placeholder='상세 주소를 입력하면 좋은 결과를 얻을 수 있습니다.' />
+                <input type="text" name="" id="" onChange={changeKeyword} onKeyDown={checkEnter} placeholder='상세 주소를 입력하면 좋은 결과를 얻을 수 있습니다.' />
                 <button onClick={getSearch}>검색</button>
             </div>
             <p className='forHelp'><span className='forHelp_span'>*</span>카카오맵 기준으로 검색됩니다.상세 주소를 입력 후 원하는 위치를 클릭하여 포인트를 등록해주세요.</p>

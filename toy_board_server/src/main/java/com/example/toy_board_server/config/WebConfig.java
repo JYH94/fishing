@@ -8,6 +8,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.util.Arrays;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -35,16 +37,17 @@ public class WebConfig {
 
 	
 	@Bean
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:3000");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        source.registerCorsConfiguration("/**", config);
-        return new CorsFilter(source);
-    }
+	public CorsFilter corsFilter() {
+	    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+	    CorsConfiguration config = new CorsConfiguration();
+	    config.setAllowCredentials(true);
+	    config.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://www.jyh94.com"));
+	    config.addAllowedHeader("*");
+	    config.addAllowedMethod("*");
+	    source.registerCorsConfiguration("/**", config);
+	    return new CorsFilter(source);
+	}
+
 	
 	
 	@Autowired

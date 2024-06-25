@@ -1,7 +1,12 @@
-.env
-
 
 # 이클립스
 .metadata
 .classpath
 .settings/
+
+
+# application.properties
+/src/main/resources/application.properties
+
+# .env 
+.env

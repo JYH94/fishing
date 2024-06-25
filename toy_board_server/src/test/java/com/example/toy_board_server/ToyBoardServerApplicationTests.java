@@ -14,17 +14,5 @@ import lombok.AllArgsConstructor;
 @SpringBootTest
 class ToyBoardServerApplicationTests {
 
-	@Autowired
-	UserService userService;
-	
-	void contextLoads() {
-	}
-
-	@Test
-	public void test() {
-		UserTeamDTO dto = userService.getUserWithTeams("test");
-
-		System.out.println(dto);
-	}
 
 }

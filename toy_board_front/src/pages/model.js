@@ -1,5 +1,5 @@
 import axios from 'axios';
-// export const BASE_URL = 'http://3.39.213.63:8080';
+// export const BASE_URL = 'http://43.200.248.183:8080';
 export const BASE_URL = 'http://localhost:8080';
 
 

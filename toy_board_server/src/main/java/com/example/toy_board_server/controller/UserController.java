@@ -56,9 +56,7 @@ public class UserController {
 	@GetMapping("/duplicate")
 	public ResponseEntity<?> duplicate(String id) {
 		ResponseEntity<?> result = null;
-		System.out.println("바인딩 : " + id);
 		User user = userService.duplicate(id);
-		System.out.println(user);
 		if(user == null) {
 			result = ResponseEntity.status(HttpStatus.OK).body("가입 가능한 ID 입니다.");
 		} else {
